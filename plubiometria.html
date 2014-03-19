@@ -1,0 +1,226 @@
+<html>
+<head>
+   <title>Probando canvas</title>
+   <meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
+<script>
+window.onload = function(){
+   var canvas = document.getElementById('miCanvas');
+   
+   var context = canvas.getContext('2d');
+
+   
+   
+    var gradiente1=context.createLinearGradient(canvas.width/2,0,canvas.width/2,canvas.height);
+    gradiente1.addColorStop(0,"red");
+    gradiente1.addColorStop(1,"white");
+
+   var meses = new Array(); //  porcentaje de dias de lluvia en cada mes
+   meses[0]=25;
+   meses[1]=13;
+   meses[2]=50;
+   meses[3]=60;
+   meses[4]=5;
+   meses[5]=19;
+   meses[6]=3;
+   meses[7]=15;
+   meses[8]=43;
+   meses[9]=65;
+   meses[10]=8;
+   meses[11]=5;
+
+   context.fillStyle="blue";
+   context.fillRect(0,0, canvas.width, canvas.height);
+    // dibujar ejes.
+      //eje y
+
+
+    context.beginPath();
+    context.moveTo(80,80);
+    context.lineTo(80,20);
+    context.fillStyle= "red";
+    context.fill();
+    context.stroke();
+
+      //eje x
+    context.beginPath();
+    context.moveTo(80,80);
+    context.lineTo(200,80);
+    context.fillStyle= "red";
+    context.fill();
+    context.stroke();
+
+
+      //meses en eje x
+
+    context.beginPath;
+    context.moveTo(80,80);
+    context.lineTo(80,85);
+    context.fillStyle= "red";
+    context.fill();
+    context.stroke();
+
+    context.beginPath;
+    context.moveTo(90,80);
+    context.lineTo(90,85);
+    context.fillStyle= "red";
+    context.fill();
+    context.stroke();
+
+    context.beginPath;
+    context.moveTo(100,80);
+    context.lineTo(100,85);
+    context.fillStyle= "red";
+    context.fill();
+    context.stroke();
+
+    context.beginPath;
+    context.moveTo(110,80);
+    context.lineTo(110,85);
+    context.fillStyle= "red";
+    context.fill();
+    context.stroke();
+
+    context.beginPath;
+    context.moveTo(120,80);
+    context.lineTo(120,85);
+    context.fillStyle= "red";
+    context.fill();
+    context.stroke();
+
+    context.beginPath;
+    context.moveTo(130,80);
+    context.lineTo(130,85);
+    context.fillStyle= "red";
+    context.fill();
+    context.stroke();
+
+    context.beginPath;
+    context.moveTo(130,80);
+    context.lineTo(130,85);
+    context.fillStyle= "red";
+    context.fill();
+    context.stroke();
+
+    context.beginPath;
+    context.moveTo(140,80);
+    context.lineTo(140,85);
+    context.fillStyle= "red";
+    context.fill();
+    context.stroke();
+
+    context.beginPath;
+    context.moveTo(150,80);
+    context.lineTo(150,85);
+    context.fillStyle= "red";
+    context.fill();
+    context.stroke();
+
+    context.beginPath;
+    context.moveTo(150,80);
+    context.lineTo(150,85);
+    context.fillStyle= "red";
+    context.fill();
+    context.stroke();
+
+    context.beginPath;
+    context.moveTo(160,80);
+    context.lineTo(160,85);
+    context.fillStyle= "red";
+    context.fill();
+    context.stroke();
+
+    context.beginPath;
+    context.moveTo(170,80);
+    context.lineTo(170,85);
+    //context.fillStyle= "red";
+    //context.fill();
+    context.stroke();
+
+    context.beginPath;
+    context.moveTo(180,80);
+    context.lineTo(180,85);
+    //context.fillStyle= "red";
+    //context.fill();
+    context.stroke();
+
+    context.beginPath;
+    context.moveTo(190,80);
+    context.lineTo(190,85);
+    context.fillStyle= gradiente1;
+    context.fill();
+    context.stroke();
+
+    
+    //context.fillStyle=gradiente1;
+    //context.fillRect(0,0,200,200);
+
+    mostrarGrafico(context,meses, gradiente1);
+
+
+    context.font = '1.2em Calibri';
+context.lineWidth = 1;
+context.strokeStyle = 'orange';
+context.strokeText('Pluviometria!', 50, 100);
+
+//closePath();
+
+context.beginPath();
+context.arc(80,80,3,0,(Math.PI/180)*360,true);
+context.arc(90,80,3,0,(Math.PI/180)*360,true);
+context.arc(100,80,3,0,(Math.PI/180)*360,true);
+context.arc(110,80,3,0,(Math.PI/180)*360,true);
+context.arc(120,80,3,0,(Math.PI/180)*360,true);
+context.arc(130,80,3,0,(Math.PI/180)*360,true);
+context.arc(140,80,3,0,(Math.PI/180)*360,true);
+context.arc(150,80,3,0,(Math.PI/180)*360,true);
+context.arc(160,80,3,0,(Math.PI/180)*360,true);
+context.arc(170,80,3,0,(Math.PI/180)*360,true);
+context.arc(180,80,3,0,(Math.PI/180)*360,true);
+context.arc(190,80,3,0,(Math.PI/180)*360,true);
+context.strokeStyle = "green";
+context.lineWidth = 1;
+context.stroke();
+
+
+
+   /****************************************************/
+}
+
+
+
+function mostrarGrafico(ctx, mimes, grad){
+   var posx=80;
+   var posy=80;
+   var pasox= 10;
+   ctx.beginPath();
+
+   ctx.moveTo(80,80);
+   ctx.lineTo(posx, posy-mimes[0]);
+   for (var i = 1; i < mimes.length; i++) {
+      posx= posx+pasox;
+      ctx.lineTo(posx, posy-mimes[i]);     
+   };
+
+   ctx.lineTo(190,80);
+   ctx.fillStyle=grad;
+   ctx.fill();
+   ctx.stroke();
+   ctx.closePath()
+   
+}
+
+</script>
+</head>
+
+<body>
+
+<canvas id="miCanvas" style="background:#999; width:100%; height:100%; position:fixed; top:0; left:0">
+[Canvas not supported by your browser]
+</canvas>
+
+<!--<canvas id="miCanvas" width="400" height="200" style="background:#999; width:100%; height:100%; position:fixed; top:0; left:0">
+[Canvas not supported by your browser]
+</canvas>-->
+
+</body>
+</html>
